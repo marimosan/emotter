@@ -1,0 +1,18 @@
+<% provide(:title, "アバウト") %>
+<div class="row">
+  <aside class="col-xs-4">
+    <section class="about-left">
+      <h4>えもったーとは</h4>
+      <p>あなたのタイムラインをシンプルにするアプリです</p>
+      <p>発信できるのは感情だけ、流れてくるのも感情だけ</p>
+      <p>twitterアカウントがあればすぐに使えます</p>
+      <% unless logged_in? %>
+        <%= link_to (button_tag "使ってみる(twitter連携)", class: "btn btn-primary"), 'auth/twitter' %>
+      <% end %>
+      <p>広告</p>
+    </section>
+  </aside>
+  <div class="col-xs-8">
+    <%= render 'shared/timeline' %>
+  </div>
+</div>

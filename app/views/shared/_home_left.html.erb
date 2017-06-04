@@ -1,0 +1,11 @@
+<section class="home-left">
+  <% if logged_in? %>
+    <%= render 'users/profile', user: current_user %>
+  <% else %>
+    <h2>えもったーへようこそ</h2>
+    <h4>世界をもっとシンプルに</h4>
+    <h4>詳しくは<%= link_to "アバウト", about_path %>へ</h4>
+    <%= link_to (button_tag "今すぐ使う", class: "btn btn-primary"), 'auth/twitter' %>
+  <% end %>
+    <%= render 'static_pages/global_statistic' %>
+</section>

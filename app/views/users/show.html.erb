@@ -1,0 +1,10 @@
+<% provide(:title, @user.name) %>
+
+<div class="row">
+  <aside class="col-md-4">
+    <%= render 'profile', user: @user %>
+  </aside>
+  <div class="col-md-8">
+    <%= render 'shared/timeline' %>
+  </div>
+</div>

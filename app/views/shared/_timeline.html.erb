@@ -1,0 +1,31 @@
+<% if @emos.any? %>
+  <% case @timeline_mode %>
+  <% when "global" %>
+    <h3 id="mode", mode= "global", user= "none"> 世界中のエモ </h3>
+  <% when "my" %>
+    <h3 id="mode", mode= "my", user= "none"> あなたのタイムライン </h3>
+  <% when "other" %>
+    <h3 id="mode", mode= "other", user="<%= @user.nickname %>"> <%= @user.name %>のエモ </h3>
+  <% end %>
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link tab-emo tab-all selected-emo", emo="all">　全　</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-emo tab-joy", emo="joy">　喜　</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-emo tab-anger", emo="anger">　怒　</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-emo tab-sad", emo="sad">　哀　</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link tab-emo tab-happiness", emo="happiness">　楽　</a>
+    </li>
+  </ul>
+  <div id="timeline">
+    <%= render "emos/emo_timeline" %>
+  </div>
+<% end %>

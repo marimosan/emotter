@@ -1,0 +1,14 @@
+<% case @users_mode %>
+<% when "all" %>
+  <h3> 全ユーザー </h3>
+<% when "following" %>
+  <h3> フォロー </h3>
+<% when "follower" %>
+  <h3>  フォロワー </h3>
+<% end %>
+<% if @users.any? %>
+  <ol class="users">
+    <%= render @users  %>
+  </ol>
+  <%= will_paginate @users %>
+<% end %>

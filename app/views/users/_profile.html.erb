@@ -1,0 +1,41 @@
+<div class="user-profile">
+  <% user_info = user.twitter_client.user %>
+  <%= image_tag(user.image_url, class: "profile-image") %>
+  <div class="profile-name"><%= link_to user.name, users_show_path(user.nickname) %><%= twitter_link(user) %> </div>
+  <div class="profile-nickname">@<%=link_to user.nickname, users_show_path(user.nickname) %> </div>
+  <div class="profile-status">
+    <div class="row">
+      <div class="col-xs-3 column-name"><span class="test">ツイート</span></div>
+      <div class="col-xs-3 column-name">エモ</div>
+      <div class="col-xs-3 column-name">フォロー</div>
+      <div class="col-xs-3 column-name"><span class="test">フォロワー</span></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3 column-value"><%= user_info.tweets_count %></div>
+      <div class="col-xs-3 column-value"><%= user.emos.count %></div>
+      <div class="col-xs-3 column-value">
+        <%= user_info.friends_count %>
+        (<%= link_to user.followings_count, following_path %>)
+      </div>
+      <div class="col-xs-3 column-value">
+        <%= user_info.followers_count %>
+        (<%= link_to user.followers_count, follower_path %>)
+      </div>
+    </div>
+  </div>
+  <div class="profile-emo">
+    <div class="row">
+      <div class="col-xs-3 column-name">喜</div>
+      <div class="col-xs-3 column-name">怒</div>
+      <div class="col-xs-3 column-name">悲</div>
+      <div class="col-xs-3 column-name">楽</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3 column-value"><%= user.emo_count("joy") %></div>
+      <div class="col-xs-3 column-value"><%= user.emo_count("anger") %></div>
+      <div class="col-xs-3 column-value"><%= user.emo_count("sad") %></div>
+      <div class="col-xs-3 column-value"><%= user.emo_count("happiness") %></div>
+    </div>
+  </div>
+
+</div>

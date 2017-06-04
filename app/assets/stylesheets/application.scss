@@ -1,0 +1,252 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* 全体 */
+head {
+  border-bottom-color: black;
+}
+
+body {
+  padding-top: 60px;
+}
+
+
+
+/* エモるボタン */
+.emo-form {
+  display: inline-flex;
+}
+
+.btn-emo {
+  @extend .btn-primary;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  &.btn-joy {
+    background-color: #CCCC00;
+    border-color: #CCCC00;
+  }
+  &.btn-anger {
+    background-color: #CC0000;
+    border-color: #CC0000;
+  }
+  &.btn-sad {
+    background-color: #00CCCC;
+    border-color: #00CCCC;
+  }
+  &.btn-happiness {
+    background-color: #00CC00;
+    border-color: #00CC00;
+  }
+  &.selected-emo {
+    background-color: #000000;
+    border-color: #000000;
+  }
+}
+
+#emo-text {
+  margin-top: 0.5em;
+  margin-left: 3em;
+  &.emo-joy {
+    text: "喜んでる"
+  }
+  &.emo-sad {
+    text: "悲しんでる"
+  }
+  &.emo-angry {
+    text: "怒ってる"
+  }
+  &.emo-happiness {
+    text: "楽しんでる"
+  }
+}
+
+.modal-backdrop {
+  z-index: 950;
+}
+
+.modal-dialog {
+  z-index: 999;
+}
+
+.dropdown {
+  z-index: 900;
+}
+
+@mixin emo-and-user-image {
+  float: left;
+  margin-right: 10px;
+  margin-top: 0px;
+  width:auto;
+  height:auto;
+  max-width:50px;
+  max-height:50px;
+}
+
+/* エモタイムライン　*/
+.emos {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0 35px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 0em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 1px;
+    }
+  }
+  .timestamp {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+  .delete {
+    float: left;
+    margin-left: 5px;
+  }
+  .emo-image {
+    @include emo-and-user-image;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 2px;
+  input {
+    border: 0;
+  }
+}
+
+
+/* エモタイムライン　タブ */
+.tab-emo {
+  @extend .btn-primary;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  &.tab-joy {
+    background-color: #CCCC00;
+    border-color: #CCCC00;
+  }
+  &.tab-anger {
+    background-color: #CC0000;
+    border-color: #CC0000;
+  }
+  &.tab-sad {
+    background-color: #00CCCC;
+    border-color: #00CCCC;
+  }
+  &.tab-happiness {
+    background-color: #00CC00;
+    border-color: #00CC00;
+  }
+  &.selected-emo {
+    background-color: #000000;
+    border-color: #000000;
+  }
+}
+
+
+/* ユーザーリスト */
+.users {
+  @extend .emos;
+  .user-image {
+    @include emo-and-user-image;
+  }
+}
+
+
+/* プロフィール */
+.user-profile {
+  padding-top: 20px;
+  .profile-status {
+    padding: 12px;
+    font-size: 8pt;
+  }
+
+  .profile-emo {
+    padding: 12px;
+    padding-top: 0px;
+    font-size: 8pt;
+  }
+
+  .profile-image {
+    @include emo-and-user-image;
+  }
+  .profile-nickname {
+    padding-bottom: 1em;
+  }
+  .column-name {
+    border: 1px solid #e8e8e8;
+
+  }
+  .column-value {
+    border: 1px solid #e8e8e8;
+  }
+}
+
+/* エモ統計 */
+.global-statistic {
+  padding-top: 10px;
+  .global-emo {
+    padding: 12px;
+    padding-top: 0px;
+    font-size: 8pt;
+  }
+
+  .column-name {
+    border: 1px solid #e8e8e8;
+
+  }
+  .column-value {
+    border: 1px solid #e8e8e8;
+  }
+}
+
+
+
+/* ヘッダー */
+#header-image {
+  overflow: auto;
+  margin-bottom: 5px;
+  display: block;
+  width: auto;
+  max-height: 37px;
+  border-radius: 50%;
+  position: relative;
+  bottom: 7px;
+}
+
+.navbar-right li{
+  margin-right: 10px;
+}
